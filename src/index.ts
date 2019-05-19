@@ -16,8 +16,8 @@ bracket_container_element.style.zIndex = "9999";
 bracket_container_element.style.zoom = "250%";
 
 let container_children = bracket_container_element.childNodes[0]! as HTMLElement;
-container_children.style.width = "2048px";
-container_children.style.height = "2048px";
+container_children.style.width = "4096px";
+container_children.style.height = "4096px";
 container_children.style.paddingLeft = "1024px";
 container_children.style.paddingTop = "1024px";
 
