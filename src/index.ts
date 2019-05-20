@@ -27,7 +27,7 @@ function zoomTo(match_label: string) {
     `//*/span[text()=\'${upper_match_label}\'][@class='identifier-container']`,
     document, null, XPathResult.ANY_TYPE, null).iterateNext() as HTMLElement;
   let match_element = target_element.parentElement!.parentElement!;
-  console.log('Navigating to ', match_element);
+  console.log(`Navigating to ${upper_match_label}: `, match_element);
   match_element.scrollIntoView(
     { behavior: "smooth", block: "center", inline: "center" }
   );
