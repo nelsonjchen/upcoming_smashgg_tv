@@ -125,7 +125,7 @@ function makeRangeCycleIterator(start = 0, end = Infinity, step = 1) {
   return cycleIterator
 }
 
-var wander_delay = 1000;
+var wander_delay = 2500;
 var wander_iterator: { next: () => { value: number; done: boolean; }; } | null = null;
 
 function configureWander(from_match_id: string, to_match_id: string) {
