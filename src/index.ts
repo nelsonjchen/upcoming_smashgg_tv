@@ -114,12 +114,11 @@ function makeRangeCycleIterator(start = 0, end = Infinity, step = 1) {
 var wander_delay = 1000;
 var wander_iterator: { next: () => { value: number; done: boolean; }; } | null = null;
 
-function setupWander(from_match_id: string, to_match_id: string) {
+function configureWander(from_match_id: string, to_match_id: string) {
   wander_iterator = makeRangeCycleIterator(
     matchIdToInt(from_match_id),
     matchIdToInt(to_match_id)
   );
-  wander();
 }
 
 function disableWander() {
