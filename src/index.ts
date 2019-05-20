@@ -96,14 +96,29 @@ function makeRangeIterator(start = 0, end = Infinity, step = 1) {
   return rangeIterator;
 }
 
+function makeRangeCycleIterator(start = 0, end = Infinity, step = 1) {
+  let innerRangeIterator = makeRangeIterator(start, end, step)
+  const cycleIterator = {
+    next: function () {
+      let result;
+      result = innerRangeIterator.next()
+      if (result.done) {
+        innerRangeIterator = makeRangeIterator(start, end, step)
+      }
+      return result
+    }
+  }
+  return cycleIterator
+}
+
 var wander_delay = 1000;
 var wander_iterator: { next: () => { value: number; done: boolean; }; } | null = null;
 
 function setupWander(from_match_id: string, to_match_id: string) {
-  wander_iterator = makeRangeIterator(
+  wander_iterator = makeRangeCycleIterator(
     matchIdToInt(from_match_id),
     matchIdToInt(to_match_id)
-  )
+  );
   wander();
 }
 
