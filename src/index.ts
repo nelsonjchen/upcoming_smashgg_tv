@@ -33,7 +33,7 @@ function zoomTo(match_label: string) {
   );
 }
 
-var m_proto: { [key:string]: null } = {};
+var m_proto: { [key: string]: null } = {};
 
 for (const char of "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
   m_proto[char] = null
@@ -53,3 +53,70 @@ var m = new Proxy(m_proto,
   }
 )
 
+function matchIdToInt(match_label: string): number {
+  let number = 0
+  if (match_label.length == 1) {
+    number = match_label.charCodeAt(0) - 65
+    return number
+  } else {
+    let larger_number = ((match_label.charCodeAt(0) - 65) + 1) * 26;
+    let smaller_number = match_label.charCodeAt(1) - 65;
+    return larger_number + smaller_number
+  }
+}
+
+function intToMatchId(match_id: number): string {
+  if (match_id < 26)
+    return String.fromCharCode(match_id + 65)
+  else {
+    let larger_letter = String.fromCharCode((match_id / 26) + 65 - 1)
+    let smaller_letter = String.fromCharCode((match_id % 26) + 65)
+    return larger_letter + smaller_letter
+  }
+}
+
+// Wander Zoom
+
+function makeRangeIterator(start = 0, end = Infinity, step = 1) {
+  let nextIndex = start;
+  let iterationCount = 0;
+
+  const rangeIterator = {
+    next: function () {
+      let result;
+      if (nextIndex < end) {
+        result = { value: nextIndex, done: false }
+        nextIndex += step;
+        iterationCount++;
+        return result;
+      }
+      return { value: iterationCount, done: true }
+    }
+  };
+  return rangeIterator;
+}
+
+var wander_delay = 1000;
+var wander_iterator: { next: () => { value: number; done: boolean; }; } | null = null;
+
+function setupWander(from_match_id: string, to_match_id: string) {
+  wander_iterator = makeRangeIterator(
+    matchIdToInt(from_match_id),
+    matchIdToInt(to_match_id)
+  )
+  wander();
+}
+
+function disableWander() {
+  wander_iterator = null;
+}
+
+function wander() {
+  setTimeout(function () {
+    if (wander_iterator != null) {
+      let match_id_int = wander_iterator.next().value
+      zoomTo(intToMatchId(match_id_int));
+      wander();
+    }
+  }, wander_delay);
+}
