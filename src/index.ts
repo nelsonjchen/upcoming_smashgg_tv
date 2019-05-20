@@ -21,21 +21,28 @@ container_children.style.height = "4096px";
 container_children.style.paddingLeft = "1024px";
 container_children.style.paddingTop = "1024px";
 
-function zoomTo(match_label: string) {
+function zoomTo(match_label: string, manual = true) {
   let upper_match_label = match_label.toUpperCase();
   let target_element = document.evaluate(
     `//*/span[text()=\'${upper_match_label}\'][@class='identifier-container']`,
     document, null, XPathResult.ANY_TYPE, null).iterateNext() as HTMLElement;
+  if (manual) {
+    console.log(`Navigating to ${upper_match_label}:`);
+  }
 
-  console.log(`Navigating to ${upper_match_label}:`);
   try {
     let match_element = target_element.parentElement!.parentElement!;
     match_element.scrollIntoView(
       { behavior: "smooth", block: "center", inline: "center" }
     );
-    console.log(`Navigated to ${upper_match_label}: `, match_element);
+    if (manual) {
+      console.log(`Navigated to ${upper_match_label}: `, match_element);
+    }
+
   } catch {
-    console.error(`Couldn't navigate to ${upper_match_label}`)
+    if (manual) {
+      console.error(`Couldn't navigate to ${upper_match_label}`)
+    }
   }
 
 }
@@ -136,7 +143,7 @@ function wander() {
   setTimeout(function () {
     if (wander_iterator != null) {
       let match_id_int = wander_iterator.next().value
-      zoomTo(intToMatchId(match_id_int));
+      zoomTo(intToMatchId(match_id_int), false);
       wander();
     }
   }, wander_delay);
