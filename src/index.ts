@@ -29,7 +29,7 @@ bracket_headers.forEach((bracket_header) => {
   bracket_header.style.top = '0';
   bracket_header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
   bracket_header.style.zIndex = '10000';
-  bracket_header.style.boxShadow = '0px 0px 5px 1px #eee'
+  bracket_header.style.boxShadow = 'rgba(255, 255, 255, 0.95) -20px 0px 0px 0px, rgba(255, 255, 255, 0.95) 20px 0px 0px 0px'
 })
 
 var branding_bar = document.createElement("div");
