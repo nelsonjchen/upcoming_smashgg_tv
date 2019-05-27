@@ -27,7 +27,7 @@ var bracket_headers = document.querySelectorAll<HTMLElement>('.bracket-content >
 bracket_headers.forEach((bracket_header) => {
   bracket_header.style.position = 'sticky';
   bracket_header.style.top = '0';
-  bracket_header.style.backgroundColor = 'white';
+  bracket_header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
   bracket_header.style.zIndex = '10000';
   bracket_header.style.boxShadow = '0px 0px 5px 1px #eee'
 })
