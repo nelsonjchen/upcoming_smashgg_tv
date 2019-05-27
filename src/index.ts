@@ -14,6 +14,7 @@ bracket_container_element.style.height = "100%";
 bracket_container_element.style.width = "100%";
 bracket_container_element.style.zIndex = "9999";
 bracket_container_element.style.transform = "scale(2.0)";
+bracket_container_element.style.transformOrigin = "0px 0px";
 
 var container_children = bracket_container_element.childNodes[0]! as HTMLElement;
 container_children.style.width = "4096px";
