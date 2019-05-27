@@ -22,6 +22,16 @@ container_children.style.height = "4096px";
 container_children.style.paddingLeft = "1024px";
 container_children.style.paddingTop = "1024px";
 
+// Grab Headers
+var bracket_headers = document.querySelectorAll<HTMLElement>('.bracket-content > div > div > div:first-child')
+
+bracket_headers.forEach((bracket_header) => {
+  bracket_header.style.position = 'sticky';
+  bracket_header.style.top = '0';
+  bracket_header.style.backgroundColor = 'white';
+  bracket_header.style.zIndex = '10000';
+})
+
 function zoomTo(match_label: string, manual = true) {
   let upper_match_label = match_label.toUpperCase();
   let target_element = document.evaluate(
