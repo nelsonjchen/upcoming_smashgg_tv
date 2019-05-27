@@ -40,7 +40,9 @@ branding_bar.style.position = "fixed";
 branding_bar.style.bottom = "0";
 branding_bar.style.backgroundColor = "black";
 branding_bar.style.position = "fixed";
-branding_bar.style.textAlign = "center";
+branding_bar.style.display = "flex";
+branding_bar.style.justifyContent = "center";
+branding_bar.style.alignItems = "center";
 
 var smashgg_bracket_link = document.createElement('span');
 smashgg_bracket_link.innerHTML = "Brackets at <u>smash.gg/FAST</u>";
@@ -57,8 +59,8 @@ frank_and_sons_logo.style.maxHeight = "100%";
 var sponsor_logo = document.createElement('img');
 sponsor_logo.style.height = "100%";
 sponsor_logo.style.objectFit = "cover";
-sponsor_logo.style.objectPosition = "0px -358px";
-sponsor_logo.style.width = "535px";
+sponsor_logo.style.objectPosition = "0px -370px";
+sponsor_logo.style.width = "552px";
 sponsor_logo.src = "https://www.frankandsonshow.net/s/cc_images/teaserbox_902369372.jpg";
 
 branding_bar.appendChild(smashgg_logo);
