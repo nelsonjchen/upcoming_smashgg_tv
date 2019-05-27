@@ -32,6 +32,41 @@ bracket_headers.forEach((bracket_header) => {
   bracket_header.style.boxShadow = '0px 0px 5px 1px #eee'
 })
 
+var branding_bar = document.createElement("div");
+branding_bar.style.zIndex = "11000";
+branding_bar.style.height = "100px";
+branding_bar.style.width = "100%";
+branding_bar.style.position = "fixed";
+branding_bar.style.bottom = "0";
+branding_bar.style.backgroundColor = "black";
+branding_bar.style.position = "fixed";
+
+var smashgg_bracket_link = document.createElement('span');
+smashgg_bracket_link.innerHTML = "Brackets at <u>smash.gg/FAST</u>";
+smashgg_bracket_link.style.color = "white";
+smashgg_bracket_link.style.fontSize = "55px";
+smashgg_bracket_link.style.padding = "0 20px";
+
+var smashgg_logo = document.createElement('img');
+smashgg_logo.src = "https://downloads.intercomcdn.com/i/o/80413437/7cb9f1e1b4c44bf38a36163a/5pYrME79koQZAcMZeLzTIz0mdcuwMU71agM-qbv3-1VsijJLxLqLQa_s642_nyNyQ_VaUf7f11IBxpUFt4WuNphIEQtJaYjezzF04OxwpBEy3XmdR5KGdErqU_m2--_wjpi87fZk";
+smashgg_logo.style.maxHeight = "100%";
+var frank_and_sons_logo = document.createElement('img');
+frank_and_sons_logo.src = "https://www.frankandsonshow.net/s/img/emotionheader.jpg?1484334698.940px.210px";
+frank_and_sons_logo.style.maxHeight = "100%";
+var sponsor_logo = document.createElement('img');
+sponsor_logo.style.height = "100%";
+sponsor_logo.style.objectFit = "cover";
+sponsor_logo.style.objectPosition = "0px -358px";
+sponsor_logo.style.width = "535px";
+sponsor_logo.src = "https://www.frankandsonshow.net/s/cc_images/teaserbox_902369372.jpg";
+
+branding_bar.appendChild(smashgg_logo);
+branding_bar.appendChild(smashgg_bracket_link);
+branding_bar.appendChild(frank_and_sons_logo);
+branding_bar.appendChild(sponsor_logo);
+
+document.body.appendChild(branding_bar);
+
 function zoomTo(match_label: string, manual = true) {
   let upper_match_label = match_label.toUpperCase();
   let target_element = document.evaluate(
