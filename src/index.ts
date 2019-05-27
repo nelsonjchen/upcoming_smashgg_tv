@@ -174,6 +174,22 @@ function makeRangeCycleIterator(start = 0, end = Infinity, step = 1) {
   return cycleIterator
 }
 
+function makeMatchListCycleIterator(matchIds: Array<string> = []) {
+  let index = 0;
+
+  const rangeIterator = {
+    next: function () {
+      let result = { value: matchIdToInt(matchIds[index]), done: false };
+      index += 1;
+      if (index == matchIds.length) {
+        index = 0;
+      }
+      return result;
+    }
+  };
+  return rangeIterator;
+}
+
 var wander_delay = 2500;
 var wander_iterator: { next: () => { value: number; done: boolean; }; } | null = null;
 
@@ -182,6 +198,10 @@ function configureWander(from_match_id: string, to_match_id: string) {
     matchIdToInt(from_match_id),
     matchIdToInt(to_match_id)
   );
+}
+
+function configureWanderList(matchIdList: string[]) {
+  wander_iterator = makeMatchListCycleIterator(matchIdList);
 }
 
 function disableWander() {
