@@ -29,6 +29,7 @@ bracket_headers.forEach((bracket_header) => {
   bracket_header.style.top = '0';
   bracket_header.style.backgroundColor = 'white';
   bracket_header.style.zIndex = '10000';
+  bracket_header.style.boxShadow = '0px 0px 5px 1px #eee'
 })
 
 function zoomTo(match_label: string, manual = true) {
