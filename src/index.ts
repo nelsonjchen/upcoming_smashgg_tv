@@ -40,6 +40,7 @@ branding_bar.style.position = "fixed";
 branding_bar.style.bottom = "0";
 branding_bar.style.backgroundColor = "black";
 branding_bar.style.position = "fixed";
+branding_bar.style.textAlign = "center";
 
 var smashgg_bracket_link = document.createElement('span');
 smashgg_bracket_link.innerHTML = "Brackets at <u>smash.gg/FAST</u>";
