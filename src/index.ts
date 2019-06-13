@@ -1,3 +1,8 @@
+// Arguments
+// --remote-debugging-port=9222
+// Note non-headless remote control needs
+// https://stackoverflow.com/a/26886625/286021
+
 // Grab Scrollable Bracket Element
 var bracket_container_element = document.querySelector('.native-scroll.dragscroll')! as HTMLElement;
 
@@ -56,7 +61,7 @@ sponsor_logo.style.height = "100%";
 sponsor_logo.style.objectFit = "cover";
 sponsor_logo.style.objectPosition = "0px -370px";
 sponsor_logo.style.width = "552px";
-sponsor_logo.src = "https://www.frankandsonshow.net/s/cc_images/teaserbox_902369372.jpg";
+sponsor_logo.src = "https://www.frankandsonshow.net/s/cc_images/teaserbox_902556915.jpg";
 
 branding_bar.appendChild(smashgg_logo);
 branding_bar.appendChild(smashgg_bracket_link);
