@@ -1,8 +1,3 @@
-// Hide Intercom Element
-var intercom_element = document.querySelector('.intercom-app')! as HTMLElement;
-intercom_element.style.display = "none";
-
-
 // Grab Scrollable Bracket Element
 var bracket_container_element = document.querySelector('.native-scroll.dragscroll')! as HTMLElement;
 
