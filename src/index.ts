@@ -25,6 +25,7 @@ container_children.style.paddingTop = "1024px";
 var bracket_headers = document.querySelectorAll<HTMLElement>('.bracket-content > div > div > div:first-child')
 
 bracket_headers.forEach((bracket_header) => {
+  bracket_header.parentElement!.style.overflowY = 'unset';
   bracket_header.style.position = 'sticky';
   bracket_header.style.top = '0';
   bracket_header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
