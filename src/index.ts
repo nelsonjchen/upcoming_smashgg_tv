@@ -6,7 +6,7 @@
 // Grab Scrollable Bracket Element
 var bracket_container_element = document.querySelector('.native-scroll.dragscroll')! as HTMLElement;
 
-bracket_container_element.style.backgroundColor = "black";
+bracket_container_element.style.backgroundColor = "white";
 bracket_container_element.style.position = "fixed";
 bracket_container_element.style.top = "0";
 bracket_container_element.style.left = "0";
