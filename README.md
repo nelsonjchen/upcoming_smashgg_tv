@@ -1,17 +1,11 @@
-# Frank and Son Smash.gg Bracket TV Tools and Toolkit
+# Frank and Son Smash.gg Upcoming Matches TV Tools and Toolkit
 
 *Not for use on small 15 inch CRTs. Those are for the players.*
 
-This is a script and/or toolkit to temporaily reformat the [smash.gg][smashgg]
-bracket page (Example: https://smash.gg/tournament/frank-and-son-tournament-5/events/smash-ultimate-singles/brackets/591451/984236)
-for big screen "Jumbotron" purposes.
+This is a script and/or toolkit to temporaily reformat the Smash.gg
+Upcoming/Ongoing Matches interface for jumbotron purposes
 
-To accomplish this, the brackets page is loaded, and then the Chrome Developer
-Tools are popped out. The brackets page is full-sized to the Jumbotron and the
-Developer Tools is left on the operator's display. The operator can smoothly
-animate the scoreboard and focus on interesting portions of the bracket.
-
-Additionally, branding can be installed behind or in front of the bracket. For
+Additionally, branding is installed behind or in front of the bracket. For
 example, logo backgrounds may be inserted. These can be step and repeat patterns
 or even animations. Further customization may be possible by overlaying CSS.
 
@@ -32,11 +26,11 @@ or even animations. Further customization may be possible by overlaying CSS.
       * 4K instructions unknown. Maybe just zoom 200% with browser?
     * Laptop Display can be anything.
     * Google Chrome is used.
-    * Make sure you've disabled sleep stuff!
+    * Make sure you've disabled sleep/screensaver stuff!
 
-1. Go to a brackets page in Chrome such as one here:
+1. Login to smash.gg. The page is only accessible to logged-in users.
 
-    https://smash.gg/tournament/frank-and-son-tournament-4/events/smash-ultimate-singles/brackets/572815/959547
+1. Go to the match dashboard page.
 
 1. Right click somewhere and select *Inspect*.
 
@@ -54,25 +48,7 @@ or even animations. Further customization may be possible by overlaying CSS.
 
 ## Operator Usage
 
-Specific commands for the bracket page will now be available in the Developer Tools console.
-
-### Movement and settings
-
-* `m.<matchID>` moves the view to the match in question.
-  * Eg. `m.AG`  will move the view to the AG match.
-  * Does not disable wander mode
-
-#### Wander mode
-
-Wander mode makes the board automatically wander against a list of preset matches in the bracket in a loop.
-
-* `configureWanderList(<Array of Match IDs>)` will configure `wander()` to wander between nodes.
-  * Eg. `configureWanderList(['A', 'AG', 'B'])` will wander from `A`, then `AG`, then `B`.
-  * *Suggested Usage*: Configure Wander List to a series of matches along the third column going down evenly so all matches are shown.
-* `wander_delay=<time in milliseconds>` sets the time in milliseconds before wander moves onto the next node. This defaults to `4000` milliseconds.
-  * Eg. `wander_delay=6000` will set the delay to `6000` milliseconds
-* `disableWander()` disables wander mode and deletes wander configuration
-* `wander()` enables wander mode. **Only do this after `configureWanderList`!!**
+Specific commands for the page will now be available in the Developer Tools console.
 
 # Development
 
